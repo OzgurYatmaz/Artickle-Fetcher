@@ -1,0 +1,67 @@
+{
+	"info": {
+		"_postman_id": "37d85bc0-162a-46bb-9c32-4be4487cea56",
+		"name": "A article Fethcher",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getTopHeadlines",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"numberOfnews\":\"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/articleApi/getTopHeadline",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"articleApi",
+						"getTopHeadline"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get aricales by keyword",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"keywords\":\"Erdogan\",\r\n    \"numberOfResults\":3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/articleApi/search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"articleApi",
+						"search"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
