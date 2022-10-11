@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.upstart.dtos.FetchNHeadlineRequest;
 import com.upstart.dtos.SearchRequest;
 import com.upstart.dtos.SearchResultResponseDTO;
-import com.upstart.service.ArticleService;
+import com.upstart.service.ArticleServiceImp;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -22,7 +22,7 @@ public class MainController {
 	
 	
 	@Autowired
-	private ArticleService articleService;
+	private ArticleServiceImp articleService;
 	
 	
 	@PostMapping("/getTopHeadline")
