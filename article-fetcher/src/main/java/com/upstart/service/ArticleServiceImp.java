@@ -3,7 +3,6 @@ package com.upstart.service;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -14,10 +13,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.upstart.dtos.SearchRequest;
 import com.upstart.dtos.SearchResultResponseDTO;
 
-import lombok.extern.slf4j.Slf4j;
+//import lombok.extern.slf4j.Slf4j;
 
+//@Slf4j 
 @Service
-@Slf4j 
 public class ArticleServiceImp implements ArticleService {
 
 	
@@ -31,6 +30,7 @@ public class ArticleServiceImp implements ArticleService {
 	
 	
 	@Cacheable("searchResultResponseDTO")
+	@Override
 	public SearchResultResponseDTO getTopHEadline(String numberOfnews) throws Exception {
 		SearchResultResponseDTO externalResponse=null;
 		URL url = new URL("https://gnews.io/api/v4/top-headlines?token="+apiToken
@@ -53,7 +53,7 @@ public class ArticleServiceImp implements ArticleService {
 	            sb.append(line+"\n");
 	        }
 	        br.close();
-	        log.info("Response received from external service: "+sb.toString());
+//	        log.info("Response received from external service: "+sb.toString());
 	        ObjectMapper objectMapper = new ObjectMapper();
 	        
 	        if(con.getResponseCode()==201 || con.getResponseCode()==200) {
@@ -62,8 +62,8 @@ public class ArticleServiceImp implements ArticleService {
 	
 	        }else {
 	        	Object errorResponse=objectMapper.readValue(sb.toString(), Object.class);
-	        	log.info("Response could not be received from. Response code: "+con.getResponseCode());
-	        	log.info("Error response from the external server: "+errorResponse.toString());
+//	        	log.info("Response could not be received from. Response code: "+con.getResponseCode());
+//	        	log.info("Error response from the external server: "+errorResponse.toString());
 	        }
 		}catch(Exception e) {
 			throw e;
@@ -77,6 +77,7 @@ public class ArticleServiceImp implements ArticleService {
 
 
 	@Cacheable("searchResultResponseDTO")
+	@Override
 	public SearchResultResponseDTO searchNews(SearchRequest searchRequest) throws Exception {
 		SearchResultResponseDTO externalResponse=null;
 		URL url = new URL("https://gnews.io/api/v4/search?token="+apiToken
@@ -100,7 +101,7 @@ public class ArticleServiceImp implements ArticleService {
 	            sb.append(line+"\n");
 	        }
 	        br.close();
-	        log.info("Response received from external service: "+sb.toString());
+//	        log.info("Response received from external service: "+sb.toString());
 	        ObjectMapper objectMapper = new ObjectMapper();
 	        
 	        if(con.getResponseCode()==201 || con.getResponseCode()==200) {
@@ -109,8 +110,8 @@ public class ArticleServiceImp implements ArticleService {
 	
 	        }else {
 	        	Object errorResponse=objectMapper.readValue(sb.toString(), Object.class);
-	        	log.info("Response could not be received from. Response code: "+con.getResponseCode());
-	        	log.info("Error response from the external server: "+errorResponse.toString());
+//	        	log.info("Response could not be received from. Response code: "+con.getResponseCode());
+//	        	log.info("Error response from the external server: "+errorResponse.toString());
 	        }
 		}catch(Exception e) {
 			throw e;

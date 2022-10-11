@@ -15,7 +15,7 @@ import com.upstart.service.ArticleServiceImp;
 import lombok.extern.slf4j.Slf4j;
 
 
-@Slf4j
+//@Slf4j
 @RestController
 @RequestMapping("/articleApi")
 public class MainController {
@@ -28,7 +28,7 @@ public class MainController {
 	@PostMapping("/getTopHeadline")
 	public SearchResultResponseDTO getTopHeadline(@RequestBody FetchNHeadlineRequest numberOfnews) {
 		
-		log.info("Article Service getTopHeadline method started");
+//		log.info("Article Service getTopHeadline method started");
 		
 		SearchResultResponseDTO res=null;
 		try {
@@ -36,7 +36,7 @@ public class MainController {
 		} catch (Exception e) {
 			res=new SearchResultResponseDTO();
 			res.setErrorMessage(e.getMessage());
-			log.error("Article Service getTopHeadline method error: "+e.getMessage());
+//			log.error("Article Service getTopHeadline method error: "+e.getMessage());
 		}
 		
 		if(res==null) {
@@ -44,7 +44,7 @@ public class MainController {
 			res.setErrorMessage("Service response is null!");
 		}
 		
-		log.info("Article Service getTopHeadline method completed");
+//		log.info("Article Service getTopHeadline method completed");
 		return res;
 	}
 
@@ -52,7 +52,7 @@ public class MainController {
 	
 	@PostMapping("/search")
 	public SearchResultResponseDTO getTopHeadline(@RequestBody SearchRequest searchRequest){
-		log.info("Article Service getTopHeadline method started");
+//		log.info("Article Service getTopHeadline method started");
 		
 		SearchResultResponseDTO res=null;
 		try {
@@ -60,7 +60,7 @@ public class MainController {
 		} catch (Exception e) {
 			res=new SearchResultResponseDTO();
 			res.setErrorMessage(e.getMessage());
-			log.error("Article Service getTopHeadline method error: "+e.getMessage());
+//			log.error("Article Service getTopHeadline method error: "+e.getMessage());
 		}
 		
 		if(res==null) {
@@ -68,7 +68,7 @@ public class MainController {
 			res.setErrorMessage("Service response is null!");
 		}
 		
-		log.info("Article Service getTopHeadline method completed");
+//		log.info("Article Service getTopHeadline method completed");
 		return res;
 	}
 	
